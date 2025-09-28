@@ -24,7 +24,7 @@
     <li><a class="dropdown-item" href="exer1.php">Exercício 1</a></li>
     <li><a class="dropdown-item" href="exer2.php">Exercício 2</a></li>
     <li><a class="dropdown-item" href="exer3.php">Exercício 3</a></li>
-    <li><a class="dropdown-item" href="Exercicio4.php">Exercício 4</a></li>
+    <li><a class="dropdown-item" href="exer4.php">Exercício 4</a></li>
     <li><a class="dropdown-item" href="exer5.php">Exercício 5</a></li>
     <li><a class="dropdown-item" href="Exercicio6.php">Exercício 6</a></li>
     <li><a class="dropdown-item" href="Exercicio7.php">Exercício 7</a></li>
