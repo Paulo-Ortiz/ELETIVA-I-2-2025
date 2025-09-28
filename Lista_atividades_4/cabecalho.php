@@ -21,6 +21,8 @@
     Exercícios
   </a>
   <ul class="dropdown-menu" aria-labelledby="dropdown1">
+    <li><a class="dropdown-item" href="referencia.php">Referência</a></li>
+    <li><a class="dropdown-item" href="index.php">Index</a></li>
     <li><a class="dropdown-item" href="exer1.php">Exercício 1</a></li>
     <li><a class="dropdown-item" href="exer2.php">Exercício 2</a></li>
     <li><a class="dropdown-item" href="exer3.php">Exercício 3</a></li>
