@@ -1,7 +1,7 @@
 <?php include('cabecalho.php') ?>
 <div class="container py-3 col-md-6">
-    <h1 class='text-center'>Exercicio 2</h1>
-    <p class='text-center'>Calcular a soma dos diferentes ou triplo do valor se iguais</p>
+    <h1>Exercicio 2</h1>
+    <p>Calcular a soma dos diferentes ou triplo do valor se iguais</p>
     <form method="post">
         <div class="mb-3">
             <label for="primeiro" class="form-label">Primeiro</label>

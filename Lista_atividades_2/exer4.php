@@ -1,6 +1,6 @@
 <?php include('cabecalho.php') ?>
 <div class="container py-3 col-md-6">
-    <h1 class='text-center'>Exercicio 4</h1>
+    <h1>Exercicio 4</h1>
     <p>Reajustando preços, se for maior que R$100,00 reais sofre 15% de desconto.</p>
     <form method="post">
         <div class="mb-3">

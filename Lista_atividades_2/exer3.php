@@ -1,7 +1,7 @@
 <?php include('cabecalho.php') ?>
 <div class="container py-3 col-md-6">
-    <h1 class='text-center'>Exercicio 3</h1>
-    <p class='text-center'>Ordenando os números</p>
+    <h1>Exercicio 3</h1>
+    <p>Ordenando os números</p>
     <form method="post">
         <div class="mb-3">
             <label for="valor_a" class="form-label">Valor A</label>
