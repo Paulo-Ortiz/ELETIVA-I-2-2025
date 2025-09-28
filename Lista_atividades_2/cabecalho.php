@@ -30,7 +30,7 @@
     <li><a class="dropdown-item" href="exer7.php">Exercício 7</a></li>
     <li><a class="dropdown-item" href="exer8.php">Exercício 8</a></li>
     <li><a class="dropdown-item" href="exer9.php">Exercício 9</a></li>
-    <li><a class="dropdown-item" href="Exercicio10.php">Exercício 10</a></li>
+    <li><a class="dropdown-item" href="exer10.php">Exercício 10</a></li>
   </ul>
 </li>
       </ul>
