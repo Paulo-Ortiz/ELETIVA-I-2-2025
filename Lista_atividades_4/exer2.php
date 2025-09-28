@@ -9,19 +9,19 @@
             <div class="row inline-row mb-5">
                 <div class="col-md-9">
                     <label for="nomes[]" class="form-label">Nome</label>
-                    <input type="text" id="nomes[]" name="nomes[]" class="form-control">
+                    <input type="text" id="nomes<?= $i ?>" name="nomes[]" class="form-control">
                 </div>
                 <div class="col-md-1">
                     <label for="nota1[]" class="form-label">Nota 1</label>
-                    <input type="number" id="nota1[]" name="nota1[]" class="form-control">
+                    <input type="number" id="nota1<?= $i ?>" name="nota1[]" class="form-control">
                 </div>
                 <div class="col-md-1">
                     <label for="nota2[]" class="form-label">Nota 2</label>
-                    <input type="number" id="nota2[]" name="nota2[]" class="form-control">
+                    <input type="number" id="nota2<?= $i ?>" name="nota2[]" class="form-control">
                 </div>
                 <div class="col-md-1">
                     <label for="nota3[]" class="form-label">Nota 3</label>
-                    <input type="number" id="nota3[]" name="nota3[]" class="form-control" required="">
+                    <input type="number" id="nota3<?= $i ?>" name="nota3[]" class="form-control" required="">
                 </div>
             </div>
         <?php endfor; ?>
