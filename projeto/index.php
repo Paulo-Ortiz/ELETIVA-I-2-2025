@@ -28,6 +28,9 @@
                     $stmt->execute([$email]);
                     $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
                     if($usuario && password_verify($senha, $usuario['senha'])){
+                        session_start();
+                        $_SESSION['acesso'] = true;
+                        $_SESSION['nome'] = $usuario['nome'];
                         header('location: principal.php');
                     } else {
                         echo "<p class='text-danger'>Credenciais inválidas!</p>";
