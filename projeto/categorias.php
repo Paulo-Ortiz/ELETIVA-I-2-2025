@@ -13,6 +13,18 @@
         echo "<p class='text-danger'>Erro ao cadastrar!</p>";
     }
 
+    if (isset($_GET['editar']) && $_GET['editar']){
+        echo "<p class='text-success'>Registro editado!</p>";
+    } else if (isset($_GET['editar']) && !$_GET['editar']){
+        echo "<p class='text-danger'>Erro ao editar!</p>";
+    }
+
+    if (isset($_GET['excluir']) && $_GET['excluir']){
+        echo "<p class='text-success'>Registro excluído!</p>";
+    } else if (isset($_GET['excluir']) && !$_GET['excluir']){
+        echo "<p class='text-danger'>Erro ao excluir!</p>";
+    }
+
 ?>
 
 
@@ -35,8 +47,8 @@
             <td><?= $d['id'] ?></td>
             <td><?= $d['nome'] ?></td>
             <td class="d-flex gap-2">
-                <a href="#" class="btn btn-sm btn-warning">Editar</a>
-                <a href="#" class="btn btn-sm btn-info">Consultar</a>
+                <a href="editar_categoria.php?id=<?= $d['id'] ?>" class="btn btn-sm btn-warning">Editar</a>
+                <a href="consultar_categoria.php?id=<?= $d['id'] ?>" class="btn btn-sm btn-info">Consultar</a>
             </td>
         </tr>
 
