@@ -52,14 +52,7 @@
   <div class="container">
 
         <?php
-            if(isset($_GET['cadastro'])){
-                $cadastro = $_GET['cadastro'];
-                if($cadastro){
-                    echo "<p class='text-success'>Cadastro realizado com sucesso!</p>";
-                } else {
-                    echo "<p class='text-danger'>Erro ao realizar o cadastro!</p>";
-                }
-            }
+        $msg_erro = '';
             if($_SERVER['REQUEST_METHOD'] == "POST"){
                 require('conexao.php');
                 $email = $_POST['email'];
@@ -74,7 +67,7 @@
                         $_SESSION['nome'] = $usuario['nome'];
                         header('location: principal.php');
                     } else {
-                        echo "<p class='text-danger'>Credenciais inválidas!</p>";
+                        $msg_erro = "<p class='text-danger text-center'>Credenciais inválidas!</p>";
                     }
                 } catch(\Exception $e){
                     echo "Erro: ".$e->getMessage();
@@ -90,6 +83,22 @@
             <h4 class="card-title">Plataforma de Cursos</h4>
             <p class="text-muted">Acesse sua conta para continuar aprendendo 🚀</p>
           </div>
+            <div>
+                <?php 
+                    if(isset($_GET['cadastro'])){
+                        $cadastro = $_GET['cadastro'];
+                        if($cadastro){
+                            echo "<p class='text-success'>Cadastro realizado com sucesso!</p>";
+                        } else {
+                            echo "<p class='text-danger'>Erro ao realizar o cadastro!</p>";
+                        }
+                    }
+                    if ($msg_erro != ""){
+                        echo $msg_erro;
+                    }                  
+                ?>
+            </div>
+
           <form method="POST">
             <div class="mb-3">
               <label for="email" class="form-label">E-mail</label>

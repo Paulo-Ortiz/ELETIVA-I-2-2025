@@ -6,7 +6,6 @@ $senha = "";
 
 try {
     $pdo = new PDO($dominio, $usuario, $senha);
-    echo "Conexão realizada com sucesso!";
 } catch (Exception $e) {
     die("Erro ao conectar ao banco!".$e->getMessage());
 }
