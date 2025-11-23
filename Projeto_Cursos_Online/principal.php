@@ -1,5 +1,34 @@
 <?php
-    session_start();
+require "conexao.php";
+
+// TOTAL DE ALUNOS
+$totalAlunos = $pdo->query("SELECT COUNT(*) FROM alunos")->fetchColumn();
+
+// TOTAL DE CURSOS
+$totalCursos = $pdo->query("SELECT COUNT(*) FROM cursos")->fetchColumn();
+
+// TOTAL DE PROFESSORES
+$totalProfessores = $pdo->query("SELECT COUNT(*) FROM professores")->fetchColumn();
+
+// TOTAL DE MATRÍCULAS
+$totalMatriculas = $pdo->query("SELECT COUNT(*) FROM matriculas")->fetchColumn();
+
+// MATRÍCULAS POR CURSO (PARA GRÁFICO)
+$matriculasPorCurso = $pdo->query("
+    SELECT cursos.nome AS curso, COUNT(matriculas.id) AS total
+    FROM matriculas
+    JOIN cursos ON cursos.id = matriculas.curso_id
+    GROUP BY cursos.id
+")->fetchAll(PDO::FETCH_ASSOC);
+
+// STATUS (ATIVA, CANCELADA, CONCLUÍDA…)
+$statusMatriculas = $pdo->query("
+    SELECT status, COUNT(*) AS total
+    FROM matriculas
+    GROUP BY status
+")->fetchAll(PDO::FETCH_ASSOC);
+
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -132,52 +161,108 @@
 </nav>
 
   <!-- Conteúdo principal -->
-  <div class="container">
-    <div class="card welcome-card">
-      <div class="welcome-banner">
-        <h2>Bem-vindo, <?php echo htmlspecialchars($_SESSION['nome']); ?>! 👋</h2>
-        <p>É ótimo ter você de volta! Continue seu aprendizado e descubra novos cursos.</p>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">📚 Meus Cursos</h5>
-        <p class="card-text text-muted">Aqui você verá os cursos em andamento e novas recomendações.</p>
+<div class="container mt-4">
 
-        <div class="row">
-          <div class="col-md-4 mb-4">
-            <div class="card h-100">
-              <img src="https://cdn-icons-png.flaticon.com/512/1828/1828961.png" class="card-img-top p-4" alt="Curso">
-              <div class="card-body text-center">
-                <h5 class="card-title">Introdução à Economia</h5>
-                <p class="card-text">Aprenda os fundamentos econômicos com exemplos práticos.</p>
-                <a href="#" class="btn btn-primary">Continuar</a>
-              </div>
-            </div>
-          </div>
+  <h2 class="fw-bold mb-4">📊 Dashboard Geral</h2>
 
-          <div class="col-md-4 mb-4">
-            <div class="card h-100">
-              <img src="https://cdn-icons-png.flaticon.com/512/2989/2989838.png" class="card-img-top p-4" alt="Curso">
-              <div class="card-body text-center">
-                <h5 class="card-title">Finanças para Devs</h5>
-                <p class="card-text">Entenda o mercado financeiro e aplique na área de tecnologia.</p>
-                <a href="#" class="btn btn-primary">Continuar</a>
-              </div>
-            </div>
-          </div>
+  <!-- CARDS ESTATÍSTICOS -->
+  <div class="row g-4">
 
-          <div class="col-md-4 mb-4">
-            <div class="card h-100">
-              <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" class="card-img-top p-4" alt="Curso">
-              <div class="card-body text-center">
-                <h5 class="card-title">Tokenização e Blockchain</h5>
-                <p class="card-text">Explore os novos modelos econômicos digitais e o futuro do mercado.</p>
-                <a href="#" class="btn btn-primary">Começar</a>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="col-md-3">
+      <div class="card shadow text-center p-3 border-0" style="border-radius: 15px;">
+        <h5 class="text-primary">Alunos</h5>
+        <h2 class="fw-bold"><?php echo $totalAlunos; ?></h2>
       </div>
     </div>
+
+    <div class="col-md-3">
+      <div class="card shadow text-center p-3 border-0" style="border-radius: 15px;">
+        <h5 class="text-success">Cursos</h5>
+        <h2 class="fw-bold"><?php echo $totalCursos; ?></h2>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card shadow text-center p-3 border-0" style="border-radius: 15px;">
+        <h5 class="text-warning">Professores</h5>
+        <h2 class="fw-bold"><?php echo $totalProfessores; ?></h2>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card shadow text-center p-3 border-0" style="border-radius: 15px;">
+        <h5 class="text-danger">Matrículas</h5>
+        <h2 class="fw-bold"><?php echo $totalMatriculas; ?></h2>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- GRÁFICOS -->
+  <div class="row mt-5">
+
+    <!-- GRÁFICO MATRÍCULAS POR CURSO -->
+    <div class="col-md-6">
+      <div class="card shadow p-3">
+        <h5 class="mb-3">📚 Matrículas por Curso</h5>
+        <canvas id="chartCursos"></canvas>
+      </div>
+    </div>
+
+    <!-- GRÁFICO STATUS -->
+    <div class="col-md-6">
+      <div class="card shadow p-3">
+        <h5 class="mb-3">📌 Status das Matrículas</h5>
+        <canvas id="chartStatus"></canvas>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+// Dados PHP → JS
+const cursosLabels = <?php echo json_encode(array_column($matriculasPorCurso, 'curso')); ?>;
+const cursosTotals = <?php echo json_encode(array_column($matriculasPorCurso, 'total')); ?>;
+
+const statusLabels = <?php echo json_encode(array_column($statusMatriculas, 'status')); ?>;
+const statusTotals = <?php echo json_encode(array_column($statusMatriculas, 'total')); ?>;
+
+// Gráfico 1: Matrículas por curso
+new Chart(document.getElementById('chartCursos'), {
+    type: 'bar',
+    data: {
+        labels: cursosLabels,
+        datasets: [{
+            label: 'Matrículas',
+            data: cursosTotals,
+            borderWidth: 1
+        }]
+    }
+});
+
+// Gráfico 2: Status das matrículas
+new Chart(document.getElementById('chartStatus'), {
+    type: 'pie',
+    data: {
+        labels: statusLabels,
+        datasets: [{
+            label: 'Status',
+            data: statusTotals,
+            backgroundColor: [
+              '#007bff',
+              '#28a745',
+              '#dc3545'
+            ],
+            borderWidth: 1
+        }]
+    },
+});
+</script>
 
     <footer class="mt-5">
       <p>© 2025 Plataforma de Cursos Online - Todos os direitos reservados</p>
