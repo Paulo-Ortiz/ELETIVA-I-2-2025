@@ -1,15 +1,21 @@
-<?php require("conexao.php"); ?> 
-
 <?php
-    if(!isset($_GET['id'])){
-        die("ID não informado!");
-    }
+require "conexao.php"; //DELETAR (DELETE)
+session_start();
 
-    $id = $_GET['id'];
+if (!isset($_GET["id"])) {
+    die("ID inválido.");
+}
 
-    $stmt = $pdo->prepare("DELETE FROM alunos WHERE id = ?");
-    $stmt->execute([$id]);
+$id = $_GET["id"];
 
-    header("Location: alunos.php");
+try {
+    $stmt = $pdo->prepare("DELETE FROM alunos WHERE id = :id");
+    $stmt->execute([":id" => $id]);
+
+    header("Location: alunos.php?msg=excluido");
     exit;
-?>
+
+} catch (Exception $e) {
+    die("Erro ao excluir aluno: " . $e->getMessage());
+}
+

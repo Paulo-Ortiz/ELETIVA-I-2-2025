@@ -1,5 +1,5 @@
 <?php
-    require "conexao.php";
+    require "conexao.php"; //LISTAGEM DE ALUNOS (READ)
     session_start();
 
     // Consulta dos alunos
