@@ -85,19 +85,19 @@
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
         <li class="nav-item">
-          <a class="nav-link text-white" href="crud_cursos.php">📚Cursos</a>
+          <a class="nav-link text-white" href="crud_cursos.php">📚 Cursos</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white" href="alunos.php">👨‍🎓Alunos</a>
+          <a class="nav-link text-white" href="alunos.php">👨‍🎓 Alunos</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white" href="professores.php">👨‍🏫Professores</a>
+          <a class="nav-link text-white" href="professores.php">👨‍🏫 Professores</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white" href="matriculas.php">📝Matrículas</a>
+          <a class="nav-link text-white" href="matriculas.php">📝 Matrículas</a>
         </li>
 
         <li class="nav-item ms-3">

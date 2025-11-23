@@ -65,12 +65,6 @@ if (isset($_POST['salvar'])) {
 <meta charset="UTF-8">
 <title>CRUD - Cursos</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<style>
-body { background: #f8f9fa; }
-.card { border-radius: 1rem; }
-.navbar { background: linear-gradient(135deg,#007bff,#6610f2); }
-.nav-link, .navbar-brand { color: #fff !important; font-weight: 500; }
-</style>
 </head>
 
 <body>
