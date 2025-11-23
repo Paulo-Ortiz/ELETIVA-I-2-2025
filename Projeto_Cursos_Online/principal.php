@@ -67,6 +67,27 @@
 
   <!-- Navbar -->
 <nav class="navbar navbar-expand-lg" style="background: linear-gradient(135deg, #007bff, #6610f2);">
+
+<style>
+  .navbar .nav-link {
+    transition: 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
+
+  .navbar .nav-link:hover {
+    background: rgba(255, 255, 255, 0.25);
+    color: #fff !important;
+    transform: translateY(-2px);
+  }
+
+  .navbar .btn-light:hover {
+    background: #f8f9fa;
+    transform: translateY(-2px);
+  }
+</style>
+
+
   <div class="container">
 
     <!-- Voltar para a tela principal -->
