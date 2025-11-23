@@ -38,8 +38,8 @@ $professores = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <div class="card shadow">
         <div class="card-body">
-            <table class="table table-hover">
-                <thead>
+            <table class="table table-hover text-center">
+                <thead class="table-primary">
                     <tr>
                         <th>ID</th>
                         <th>Nome</th>

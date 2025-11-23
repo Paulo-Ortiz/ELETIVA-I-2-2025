@@ -36,8 +36,8 @@ $matriculas = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <a href="matricula_cadastrar.php" class="btn btn-primary">Nova Matrícula</a>
     </div> 
 
-    <table class="table table-bordered table-hover bg-white">
-        <thead class="table-dark">
+    <table class="table table-bordered table-hover bg-white text-center">
+        <thead class="table-primary">
             <tr>
                 <th>ID</th>
                 <th>Aluno</th>

@@ -32,7 +32,7 @@
 
         <a href="aluno_cadastrar.php" class="btn btn-primary mb-3">+ Cadastrar Novo Aluno</a>
 
-        <table class="table table-striped table-hover">
+        <table class="table table-hover text-center">
             <thead class="table-primary">
                 <tr>
                     <th>ID</th>
