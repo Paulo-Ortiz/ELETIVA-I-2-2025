@@ -41,30 +41,7 @@
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg">
-  <div class="container">
-    <a class="navbar-brand" href="principal.php">🎓 Plataforma de Cursos</a>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-
-        <li class="nav-item"><a class="nav-link" href="principal.php">🏠 Principal</a></li>
-        <li class="nav-item"><a class="nav-link" href="crud_cursos.php">📚Cursos</a></li>
-        <li class="nav-item"><a class="nav-link active fw-bold" href="alunos.php">👨‍🎓Alunos</a></li>
-        <li class="nav-item"><a class="nav-link" href="professores.php">👨‍🏫Professores</a></li>
-        <li class="nav-item"><a class="nav-link" href="matriculas.php">📝Matrículas</a></li>
-
-        <li class="nav-item"><a class="nav-link text-warning" href="logout.php">Sair</a></li>
-
-      </ul>
-    </div>
-
-  </div>
-</nav>
+<?php include("navbar.php"); ?>
 
 <!-- CONTEÚDO -->
 <div class="container mt-4">

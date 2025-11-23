@@ -1,45 +1,40 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
+<nav class="navbar navbar-expand-lg" style="background: linear-gradient(135deg, #007bff, #6610f2);">
+  <div class="container">
+    <a class="navbar-brand text-white fw-bold" href="principal.php">🎓 Plataforma de Cursos</a>
 
-    <!-- Nome da plataforma -->
-    <a class="navbar-brand" href="principal.php">Plataforma de Cursos</a>
-
-    <!-- Botão responsivo -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <button class="navbar-toggler text-white border-white" type="button" 
+            data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Itens da navbar -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
 
-        <!-- Voltar para Página Principal -->
         <li class="nav-item">
-          <a class="nav-link" href="principal.php">🏠 Principal</a>
+          <a class="nav-link text-white" href="principal.php">🏠 Principal</a>
         </li>
 
-        <!-- CRUD Cursos -->
         <li class="nav-item">
-          <a class="nav-link" href="crud_cursos.php">📚Cursos</a>
+          <a class="nav-link text-white" href="crud_cursos.php">📚 Cursos</a>
         </li>
 
-        <!-- CRUD Alunos -->
         <li class="nav-item">
-          <a class="nav-link" href="alunos.php">👨‍🎓Alunos</a>
+          <a class="nav-link text-white" href="alunos.php">👨‍🎓 Alunos</a>
         </li>
 
-        <!-- CRUD Professores -->
         <li class="nav-item">
-          <a class="nav-link" href="professores.php">👨‍🏫Professores</a>
+          <a class="nav-link text-white" href="professores.php">👨‍🏫 Professores</a>
         </li>
 
-        <!-- Matrículas -->
         <li class="nav-item">
-          <a class="nav-link" href="matriculas.php">📝Matrículas</a>
+          <a class="nav-link text-white" href="matriculas.php">📝 Matrículas</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="logout.php" class="btn btn-light btn-sm ms-3">Sair</a>
         </li>
 
       </ul>
     </div>
-
   </div>
 </nav>

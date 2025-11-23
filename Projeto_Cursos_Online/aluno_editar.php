@@ -54,6 +54,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 <body class="bg-light">
 
+<!-- NAVBAR -->
+<?php include("navbar.php"); ?>
+
 <div class="container mt-5">
     <div class="card p-4 shadow">
         <h3>✏️ Editar Aluno</h3>

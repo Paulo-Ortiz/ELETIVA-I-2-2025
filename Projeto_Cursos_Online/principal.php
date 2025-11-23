@@ -93,7 +93,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white" href="crud_professores.php">👨‍🏫Professores</a>
+          <a class="nav-link text-white" href="professores.php">👨‍🏫Professores</a>
         </li>
 
         <li class="nav-item">

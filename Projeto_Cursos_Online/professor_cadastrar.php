@@ -1,29 +1,27 @@
 <?php
-require "conexao.php"; //CRIAR (CREATE)
+require "conexao.php";
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $nome = $_POST["nome"];
     $email = $_POST["email"];
-    $telefone = $_POST["telefone"];
-    $data_nascimento = $_POST["data_nascimento"];
+    $formacao = $_POST["formacao"];
 
     try {
-        $sql = "INSERT INTO alunos (nome, email, telefone, data_nascimento) 
-                VALUES (:nome, :email, :telefone, :data_nascimento)";
+        $sql = "INSERT INTO professores (nome, email, formacao, data_cadastro)
+                VALUES (:nome, :email, :formacao, NOW())";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
             ":nome" => $nome,
             ":email" => $email,
-            ":telefone" => $telefone,
-            ":data_nascimento" => $data_nascimento
+            ":formacao" => $formacao
         ]);
 
-        header("Location: alunos.php?msg=cadastrado");
+        header("Location: professores.php?msg=cadastrado");
         exit;
 
     } catch (Exception $e) {
-        die("Erro ao cadastrar aluno: " . $e->getMessage());
+        die("Erro: " . $e->getMessage());
     }
 }
 ?>
@@ -31,17 +29,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastrar Aluno</title>
+    <title>Cadastrar Professor</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
 
-<!-- NAVBAR -->
-<?php include("navbar.php"); ?>
+<?php include "navbar.php"; ?>
 
 <div class="container mt-5">
     <div class="card p-4 shadow">
-        <h3>👨‍🎓 Cadastrar Novo Aluno</h3>
+        <h3>👨‍🏫 Cadastrar Novo Professor</h3>
         <hr>
 
         <form method="POST">
@@ -56,22 +53,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Telefone</label>
-                <input type="text" name="telefone" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label">Data de Nascimento</label>
-                <input type="date" name="data_nascimento" class="form-control">
+                <label class="form-label">Formação</label>
+                <input type="text" name="formacao" class="form-control">
             </div>
 
             <button class="btn btn-success">Salvar</button>
-            <a href="alunos.php" class="btn btn-secondary">Voltar</a>
+            <a href="professores.php" class="btn btn-secondary">Voltar</a>
         </form>
     </div>
 </div>
 
 </body>
 </html>
-
-
