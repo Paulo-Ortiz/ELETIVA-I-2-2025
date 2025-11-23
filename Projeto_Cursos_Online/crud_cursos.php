@@ -128,6 +128,7 @@ body { background: #f8f9fa; }
                 <tr>
                     <th>ID</th>
                     <th>Nome</th>
+                    <th>Descrição</th>
                     <th>Carga Horária</th>
                     <th>Data Criação</th>
                     <th>Ações</th>
@@ -142,6 +143,7 @@ body { background: #f8f9fa; }
                 <tr>
                     <td><?= $row['id'] ?></td>
                     <td><?= $row['nome'] ?></td>
+                    <td><?= $row['descricao'] ?></td>
                     <td><?= $row['carga_horaria'] ?>h</td>
                     <td><?= $row['data_criacao'] ?></td>
                     <td>

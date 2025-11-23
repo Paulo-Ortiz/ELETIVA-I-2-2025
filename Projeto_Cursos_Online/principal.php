@@ -97,7 +97,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white" href="crud_matriculas.php">📝Matrículas</a>
+          <a class="nav-link text-white" href="matriculas.php">📝Matrículas</a>
         </li>
 
         <li class="nav-item ms-3">
