@@ -66,14 +66,49 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg">
-    <div class="container">
-      <a class="navbar-brand" href="#">🎓 Plataforma de Cursos</a>
-      <div class="ms-auto">
-        <a href="logout.php" class="btn btn-light btn-sm">Sair</a>
-      </div>
+<nav class="navbar navbar-expand-lg" style="background: linear-gradient(135deg, #007bff, #6610f2);">
+  <div class="container">
+
+    <!-- Voltar para a tela principal -->
+    <a class="navbar-brand" href="principal.php">
+      🎓 Plataforma de Cursos
+    </a>
+
+    <!-- Botão Mobile -->
+    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+
+      <!-- Menu -->
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link text-white" href="crud_cursos.php">📚Cursos</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-white" href="crud_alunos.php">👨‍🎓Alunos</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-white" href="crud_professores.php">👨‍🏫Professores</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-white" href="crud_matriculas.php">📝Matrículas</a>
+        </li>
+
+        <li class="nav-item ms-3">
+          <a href="logout.php" class="btn btn-light btn-sm">Sair</a>
+        </li>
+
+      </ul>
     </div>
-  </nav>
+
+  </div>
+</nav>
 
   <!-- Conteúdo principal -->
   <div class="container">
