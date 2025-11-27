@@ -16,6 +16,31 @@
     background: #f8f9fa;
     transform: translateY(-2px);
   }
+
+  /* Botão imprimir */
+  .btn-print {
+    background: rgba(255, 255, 255, 0.25);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-weight: 500;
+    transition: 0.3s;
+  }
+
+  .btn-print:hover {
+    background: rgba(255, 255, 255, 0.45);
+    transform: translateY(-2px);
+    color: #fff;
+  }
+
+  /* Esconder botão na impressão */
+  @media print {
+    .btn-print,
+    .navbar {
+      display: none !important;
+    }
+  }
 </style>
 
   <div class="container">
@@ -47,6 +72,11 @@
 
         <li class="nav-item">
           <a class="nav-link text-white" href="matriculas.php">📝 Matrículas</a>
+        </li>
+        
+        <!-- Botão de imprimir -->
+        <li class="nav-item">
+          <button class="btn-print ms-3" onclick="window.print()">🖨 Imprimir</button>
         </li>
 
         <li class="nav-item">
